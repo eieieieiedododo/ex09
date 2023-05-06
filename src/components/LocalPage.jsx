@@ -30,6 +30,7 @@ const LocalPage = () => {
     const onSearch = (e) => {
         e.preventDefault(); // 바로 서브밋 되는걸 막아주기.
         getLocal();
+        setPage(1);
     }
 
     return (
