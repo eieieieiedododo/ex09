@@ -8,8 +8,8 @@ const LoginPage = ({history}) => {
     const [loading, setLoading] = useState(false);
     const auth=getAuth(app);
     const [form, setForm] = useState({
-        email:'12204160@inha.edu',
-        password:'12204160'
+        email:'testtest@inha.edu',
+        password:'12345678'
     });
     const {email, password} = form;
 
