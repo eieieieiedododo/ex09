@@ -13,11 +13,10 @@ import LoginPage from './LoginPage';
 import JoinPage from './JoinPage';
 import MyPage from './MyPage';
 
-const RouterPage = ({ history }) => {
+const RouterPage = ({history}) => {
     const onLogout = () => {
         sessionStorage.removeItem('email');
         history.push('/');
-
     }
     return (
         <>
@@ -37,24 +36,27 @@ const RouterPage = ({ history }) => {
                         <div>
                             {sessionStorage.getItem('email') ?
                                 <>
-                                    <Link to="/mypage">{sessionStorage.getItem('email')}</Link>
-                                    <Link onClick={onLogout} to="/logout">로그아웃</Link>
+                                    <Link to="/mypage">
+                                        {sessionStorage.getItem('email')}
+                                    </Link>
+                                    <Link
+                                        onClick={onLogout} 
+                                        to="/logout">로그아웃</Link>
                                 </>
                                 :
                                 <Link to="/login">로그인</Link>
                             }
-
                         </div>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
             <Switch>
-                <Route path="/" component={HomePage} exact={true} />
-                <Route path="/book" component={BookPage} />
-                <Route path="/local" component={LocalPage} />
-                <Route path="/login" component={LoginPage} />
-                <Route path="/join" component={JoinPage} />
-                <Route path="/mypage" component={MyPage} />
+                <Route path="/" component={HomePage} exact={true}/>
+                <Route path="/book" component={BookPage}/> 
+                <Route path="/local" component={LocalPage}/>
+                <Route path="/login" component={LoginPage}/>
+                <Route path="/join" component={JoinPage}/>
+                <Route path="/mypage" component={MyPage}/>
             </Switch>
         </>
     )
